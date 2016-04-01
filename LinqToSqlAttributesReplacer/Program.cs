@@ -1,0 +1,10 @@
+﻿namespace LinqToSqlAttributesReplacer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        { 
+
+        }
+    }
+}
