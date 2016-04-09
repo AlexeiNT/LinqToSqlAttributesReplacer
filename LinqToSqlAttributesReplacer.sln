@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToSqlAttributesCommon",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToSqlAttributesCollector", "LinqToSqlAttributesCollector\LinqToSqlAttributesCollector.csproj", "{23A7FE97-8F07-4D36-9D33-30BDDAEA5615}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToSqlAttributesReplacer", "LinqToSqlAttributesReplacer\LinqToSqlAttributesReplacer.csproj", "{69C51DA6-EC8C-4ACE-B6D2-AF45F4523B08}"
+	ProjectSection(ProjectDependencies) = postProject
+		{905E562E-F90D-41E0-A8A7-946601F56E4F} = {905E562E-F90D-41E0-A8A7-946601F56E4F}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +26,10 @@ Global
 		{23A7FE97-8F07-4D36-9D33-30BDDAEA5615}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23A7FE97-8F07-4D36-9D33-30BDDAEA5615}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23A7FE97-8F07-4D36-9D33-30BDDAEA5615}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69C51DA6-EC8C-4ACE-B6D2-AF45F4523B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C51DA6-EC8C-4ACE-B6D2-AF45F4523B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C51DA6-EC8C-4ACE-B6D2-AF45F4523B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C51DA6-EC8C-4ACE-B6D2-AF45F4523B08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
