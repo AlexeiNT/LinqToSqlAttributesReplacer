@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LightInject, Version=4.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.4.0.9\lib\net46\LightInject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="LinqToSqlAttributesCommon">
       <HintPath>..\packages\LinqToSqlAttributesCommon\LinqToSqlAttributesCommon.dll</HintPath>
     </Reference>
@@ -100,9 +104,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementation\AttributeName.cs" />
+    <Compile Include="Implementation\AttributesSummary.cs" />
     <Compile Include="Implementation\DocumentProcessor.cs" />
-    <Compile Include="Implementation\RoslynExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace LinqToSqlAttributesCollector.Implementation
+﻿namespace LinqToSqlAttributesCommon.Helpers
 {
     public static class AttributeName
     {

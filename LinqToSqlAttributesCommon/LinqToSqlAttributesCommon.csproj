@@ -102,7 +102,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\AttributesSummary.cs" />
+    <Compile Include="Extensions\RoslynExtensions.cs" />
+    <Compile Include="Helpers\AttributeName.cs" />
     <Compile Include="Helpers\ConsoleHelper.cs" />
     <Compile Include="Helpers\SolutionHelper.cs" />
     <Compile Include="Interfaces\IDocumentProcessor.cs" />
@@ -119,6 +120,7 @@
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetDir)$(TargetName).*" "$(ProjectDir)..\packages\LinqToSqlAttributesCommon"</PostBuildEvent>

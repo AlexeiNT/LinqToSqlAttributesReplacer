@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using LinqToSqlAttributesCollector.Implementation;
 using LinqToSqlAttributesCommon;
-using LinqToSqlAttributesCommon.Extensions;
 using LinqToSqlAttributesCommon.Helpers;
 
 namespace LinqToSqlAttributesCollector

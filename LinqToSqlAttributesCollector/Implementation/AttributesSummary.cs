@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LinqToSqlAttributesCommon.Extensions
+namespace LinqToSqlAttributesCollector.Implementation
 {
     public class AttributesSummary
     {

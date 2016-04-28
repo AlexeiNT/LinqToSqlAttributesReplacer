@@ -2,42 +2,42 @@ using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace LinqToSqlAttributesCollector.Implementation
+namespace LinqToSqlAttributesCommon.Extensions
 {
     public static class RoslynExtensions
     {
         public static AttributeSyntax[] SelectAttributes(this PropertyDeclarationSyntax property, params string[] attributeNames)
         {
-            return property.AttributeLists.SelectAttributes(attributeNames);
+            return property.AttributeLists.InnerSelectAttributes(attributeNames);
 
         }
 
         public static AttributeSyntax[] SelectAttributes(this ClassDeclarationSyntax @class, params string[] attributeNames)
         {
-            return @class.AttributeLists.SelectAttributes(attributeNames);
+            return @class.AttributeLists.InnerSelectAttributes(attributeNames);
         }
 
-        public static AttributeSyntax[] SelectAttributes(this SyntaxList<AttributeListSyntax> attributeLists, params string[] attributeNames)
+        private static AttributeSyntax[] InnerSelectAttributes(this SyntaxList<AttributeListSyntax> attributeLists, params string[] attributeNames)
         {
             var query = attributeLists.SelectMany(x => x.Attributes);
-
+ 
             if (attributeNames.Length > 0)
             {
                 query = query.Where(x => attributeNames.Contains(x.Name.ToString()));
             }
-
+ 
             return query.ToArray();
         }
 
         public static bool HasAttribute(this PropertyDeclarationSyntax property, string attributeName)
         {
-            var propertyAttributes = property.SelectAttributes(attributeName);
+            var propertyAttributes = property.AttributeLists.InnerSelectAttributes(attributeName);
             return propertyAttributes.Length > 0;
         }
 
         public static bool HasAttribute(this ClassDeclarationSyntax @class, string attributeName)
         {
-            var propertyAttributes = @class.SelectAttributes(attributeName);
+            var propertyAttributes = @class.AttributeLists.InnerSelectAttributes(attributeName);
             return propertyAttributes.Length > 0;
         }
 
