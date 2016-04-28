@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis.MSBuild;
 
 namespace LinqToSqlAttributesCommon
 {
-    public class SolutionProcessor
+    public class SolutionProcessor : ISolutionProcessor
     {
         private readonly IDocumentProcessor documentProcessor;
 
