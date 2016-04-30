@@ -1,8 +1,8 @@
 using Microsoft.CodeAnalysis.Editing;
 
-namespace LinqToSqlAttributesReplacer
+namespace LinqToSqlAttributesReplacer.DocumentEditing
 {
-    public interface IDocumentEditingCommands
+    public interface IDocumentEditingCommand
     {
         DocumentEditor Execute(DocumentEditor documentEditor);
     }
