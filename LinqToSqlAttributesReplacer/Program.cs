@@ -4,12 +4,6 @@ using LightInject;
 using LinqToSqlAttributesCommon;
 using LinqToSqlAttributesCommon.Helpers;
 
-public static class AttributeArgumentName
-{
-    public const string TableName = "Name";
-}
-
-
 namespace LinqToSqlAttributesReplacer
 {
     class Program

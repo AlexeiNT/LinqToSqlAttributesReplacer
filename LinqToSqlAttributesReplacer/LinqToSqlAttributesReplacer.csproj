@@ -106,6 +106,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttributeArgumentName.cs" />
     <Compile Include="ContainerConfigurator.cs" />
     <Compile Include="DocumentProcessor.cs" />
     <Compile Include="IDocumentEditingCommands.cs" />
