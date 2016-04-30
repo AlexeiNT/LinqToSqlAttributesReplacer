@@ -20,12 +20,12 @@ namespace LinqToSqlAttributesCommon.Extensions
         private static AttributeSyntax[] InnerSelectAttributes(this SyntaxList<AttributeListSyntax> attributeLists, params string[] attributeNames)
         {
             var query = attributeLists.SelectMany(x => x.Attributes);
- 
+
             if (attributeNames.Length > 0)
             {
                 query = query.Where(x => attributeNames.Contains(x.Name.ToString()));
             }
- 
+
             return query.ToArray();
         }
 
@@ -54,6 +54,18 @@ namespace LinqToSqlAttributesCommon.Extensions
         public static string GetStringValue(this AttributeArgumentSyntax argument)
         {
             return argument.Expression.ChildTokens().First().ValueText;
+        }
+
+        public static UsingDirectiveSyntax[] SelectUsingDirectives(this SyntaxNode root, params string[] namespaceNames)
+        {
+            var result = root.DescendantNodes().OfType<UsingDirectiveSyntax>();
+
+            if (namespaceNames.Length > 0)
+            {
+                result = result.Where(x => namespaceNames.Contains(x.Name.ToString()));
+            }
+
+            return result.ToArray();
         }
     }
 }

@@ -107,12 +107,14 @@
     <Compile Include="ContainerConfigurator.cs" />
     <Compile Include="DocumentEditing\Commands\SyntaxReplacementCommand.cs" />
     <Compile Include="DocumentEditing\DocumentEditingCommandsCompositeFactory.cs" />
+    <Compile Include="DocumentEditing\Factories\NamespaceReplacementCommandFactory.cs" />
     <Compile Include="DocumentEditing\Factories\TableAttributesReplacementCommandFactory.cs" />
     <Compile Include="DocumentEditing\IDocumentEditingCommand.cs" />
     <Compile Include="DocumentEditing\IDocumentEditingCommandsCompositeFactory.cs" />
     <Compile Include="DocumentEditing\IDocumentEditingConcreteFactory.cs" />
     <Compile Include="DocumentProcessor.cs" />
     <Compile Include="IDocumentWriter.cs" />
+    <Compile Include="NamespaceName.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
