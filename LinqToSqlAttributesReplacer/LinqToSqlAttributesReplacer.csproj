@@ -108,8 +108,10 @@
   <ItemGroup>
     <Compile Include="AttributeArgumentName.cs" />
     <Compile Include="ContainerConfigurator.cs" />
+    <Compile Include="DocumentEditing\DocumentEditingCommandsCompositeFactory.cs" />
     <Compile Include="DocumentEditing\IDocumentEditingCommand.cs" />
     <Compile Include="DocumentEditing\IDocumentEditingCommandsCompositeFactory.cs" />
+    <Compile Include="DocumentEditing\IDocumentEditingConcreteFactory.cs" />
     <Compile Include="DocumentProcessor.cs" />
     <Compile Include="IDocumentWriter.cs" />
     <Compile Include="Program.cs" />
