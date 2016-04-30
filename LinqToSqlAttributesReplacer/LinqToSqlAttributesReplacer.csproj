@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="AttributeArgumentName.cs" />
     <Compile Include="ContainerConfigurator.cs" />
+    <Compile Include="DocumentEditing\Commands\SyntaxReplacementCommand.cs" />
     <Compile Include="DocumentEditing\DocumentEditingCommandsCompositeFactory.cs" />
     <Compile Include="DocumentEditing\IDocumentEditingCommand.cs" />
     <Compile Include="DocumentEditing\IDocumentEditingCommandsCompositeFactory.cs" />
