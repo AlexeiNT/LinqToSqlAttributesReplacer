@@ -45,5 +45,15 @@ namespace LinqToSqlAttributesCommon.Extensions
         {
             return attributes.ArgumentList.Arguments.ToArray();
         }
+
+        public static AttributeArgumentSyntax GetArgument(this AttributeSyntax attribute, string attributeName)
+        {
+            return attribute.ArgumentList.Arguments.Single(x => x.NameEquals.Name.ToString() == attributeName);
+        }
+
+        public static string GetStringValue(this AttributeArgumentSyntax argument)
+        {
+            return argument.Expression.ChildTokens().First().ValueText;
+        }
     }
 }
