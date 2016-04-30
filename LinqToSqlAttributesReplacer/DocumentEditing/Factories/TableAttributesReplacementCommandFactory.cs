@@ -29,7 +29,7 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories
             return attributesForReplacement.Select(x => CreateCommand(x, CreateReplacement(x))).ToArray();
         }
 
-        private static AttributeSyntax CreateReplacement(AttributeSyntax attributeSyntax)
+        private static AttributeListSyntax CreateReplacement(AttributeSyntax attributeSyntax)
         {
             var tableName = attributeSyntax.GetArgument(AttributeArgumentName.TableName).GetStringValue();
 
@@ -41,10 +41,11 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories
                             SyntaxFactory.Literal(tableName)))
                 }));
 
-            return SyntaxFactory.Attribute(SyntaxFactory.IdentifierName(AttributeName.Table), attributeArgumentListSyntax);
+            var atributeSyntax =  SyntaxFactory.Attribute(SyntaxFactory.IdentifierName(AttributeName.Table), attributeArgumentListSyntax);
+            return SyntaxFactory.AttributeList( SyntaxFactory.SeparatedList(new [] {atributeSyntax})).NormalizeWhitespace();
         }
 
-        private static IDocumentEditingCommand CreateCommand(AttributeSyntax oldAttribute, AttributeSyntax newAttribute)
+        private static IDocumentEditingCommand CreateCommand(AttributeSyntax oldAttribute, AttributeListSyntax newAttribute)
         {
             return new SyntaxReplacementCommand(oldAttribute, newAttribute);
         }
