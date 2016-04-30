@@ -3,6 +3,7 @@ using System.Diagnostics;
 using LightInject;
 using LinqToSqlAttributesCommon;
 using LinqToSqlAttributesCommon.Helpers;
+using LinqToSqlAttributesReplacer.Configuration;
 
 namespace LinqToSqlAttributesReplacer
 {
