@@ -51,9 +51,20 @@ namespace LinqToSqlAttributesCommon.Extensions
             return attribute.ArgumentList.Arguments.Single(x => x.NameEquals.Name.ToString() == attributeName);
         }
 
+        public static AttributeArgumentSyntax FindArgument(this AttributeSyntax attribute, string attributeName)
+        {
+            return attribute.ArgumentList.Arguments.FirstOrDefault(x => x.NameEquals.Name.ToString() == attributeName);
+        }
+
         public static string GetStringValue(this AttributeArgumentSyntax argument)
         {
             return argument.Expression.ChildTokens().First().ValueText;
+        }
+
+        public static bool GetBoolValue(this AttributeArgumentSyntax argument)
+        {
+            var valueText = argument.Expression.ChildTokens().First().ValueText;
+            return bool.Parse(valueText);
         }
 
         public static UsingDirectiveSyntax[] SelectUsingDirectives(this SyntaxNode root, params string[] namespaceNames)
