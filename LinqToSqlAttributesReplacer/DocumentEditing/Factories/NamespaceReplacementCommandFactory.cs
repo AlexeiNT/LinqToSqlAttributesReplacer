@@ -16,20 +16,25 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories
 
         public IDocumentEditingCommand[] Create(SyntaxNode documentSyntax)
         {
-            return documentSyntax
-                .SelectUsingDirectives(NamespaceName.LinqDataMappng)
-                .Select(x => CreateCommand(x, CreateReplacement(x)))
-                .ToArray();
+            var usingDirective = documentSyntax.SelectUsingDirectives(NamespaceName.LinqDataMappng).First();
+            return new[] {CreateCommand(usingDirective, CreateReplacement())};
         }
 
-        private static UsingDirectiveSyntax CreateReplacement(UsingDirectiveSyntax usingDirective)
+        private static UsingDirectiveSyntax[] CreateReplacement()
         {
-            return usingDirective.WithName(SyntaxFactory.IdentifierName(NamespaceName.EntityFrameworkDataMapping));
+            var dataUsing = CreateUsing(NamespaceName.EntityFrameworkData);
+            var schemaUsing = CreateUsing(NamespaceName.EntityFrameworkSchema);
+            return new[] {dataUsing, schemaUsing};
         }
 
-        private static IDocumentEditingCommand CreateCommand(UsingDirectiveSyntax old, UsingDirectiveSyntax @new)
+        private static UsingDirectiveSyntax CreateUsing(string usingPath)
         {
-            return new SyntaxReplacementCommand(old, @new);
+            return SyntaxFactory.UsingDirective(SyntaxFactory.IdentifierName(usingPath));
+        }
+
+        private static IDocumentEditingCommand CreateCommand(UsingDirectiveSyntax old, UsingDirectiveSyntax[] @new)
+        {
+            return new UsingReplacementCommand(old, @new);
         }
     }
 }
