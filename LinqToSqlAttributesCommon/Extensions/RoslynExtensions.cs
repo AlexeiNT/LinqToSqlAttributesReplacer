@@ -67,6 +67,11 @@ namespace LinqToSqlAttributesCommon.Extensions
             return bool.Parse(valueText);
         }
 
+        public static string GetEnumValue(this AttributeArgumentSyntax argument)
+        {
+            return argument.Expression.ChildTokens().First().ValueText;
+        }
+
         public static UsingDirectiveSyntax[] SelectUsingDirectives(this SyntaxNode root, params string[] namespaceNames)
         {
             var result = root.DescendantNodes().OfType<UsingDirectiveSyntax>();
