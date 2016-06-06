@@ -127,6 +127,7 @@
     <Compile Include="NamespaceName.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Integrational\AttributesReplacementTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -141,6 +142,9 @@
       <Project>{905e562e-f90d-41e0-a8a7-946601f56e4f}</Project>
       <Name>LinqToSqlAttributesCommon</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\Unit\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
