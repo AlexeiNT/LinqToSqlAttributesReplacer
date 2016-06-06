@@ -8,6 +8,6 @@
         public const string EntityKey = "Key";
         public const string EntityRequired = "Required";
         public const string EntityDbGenerated = "DatabaseGenerated";
-        public const string ConcurrencyCheck = "ConcurrencyCheck";
+        public const string EntityConcurrencyCheck = "ConcurrencyCheck";
     }
 }
