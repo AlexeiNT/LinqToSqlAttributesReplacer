@@ -37,7 +37,7 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
             {
                 var columnNameAttribute = SyntaxFactory.AttributeArgument(
                     SyntaxFactory.AssignmentExpression(
-                        SyntaxKind.AttributeArgument, 
+                        SyntaxKind.SimpleAssignmentExpression,
                         SyntaxFactory.IdentifierName(AttributeArgumentName.EntityColumnType),
                         SyntaxFactory.LiteralExpression(SyntaxKind.StringLiteralExpression, SyntaxFactory.Literal(columnType))
                         ));
@@ -45,7 +45,7 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
                 attributesArguments.Add(columnNameAttribute);
             }
 
-            var attributes = columnType == null
+            var attributes = columnType != null
                 ? SyntaxFactory.AttributeArgumentList(SyntaxFactory.SeparatedList(attributesArguments))
                 : null;
 
