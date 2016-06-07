@@ -1,9 +1,10 @@
+using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 
 namespace LinqToSqlAttributesReplacer
 {
     public interface IDocumentWriter
     {
-        void Write(Document updatedDocument);
+        Task WriteAsync(Document updatedDocument);
     }
 }

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using LinqToSqlAttributesCommon.Helpers;
 using Microsoft.CodeAnalysis;
 
@@ -5,10 +6,10 @@ namespace LinqToSqlAttributesReplacer
 {
     public class ConsoleDocumentWriter : IDocumentWriter
     {
-        public void Write(Document updatedDocument)
+        public async Task WriteAsync(Document updatedDocument)
         {
-            var documentSource = updatedDocument.GetSyntaxRootAsync().Result.NormalizeWhitespace().ToString();
-            ConsoleHelper.Write(documentSource);
+            var documentSource = await updatedDocument.GetSyntaxRootAsync().ConfigureAwait(false);
+            ConsoleHelper.Write(documentSource.NormalizeWhitespace().ToString());
         }
     }
 }

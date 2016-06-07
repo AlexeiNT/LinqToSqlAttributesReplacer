@@ -25,7 +25,7 @@ namespace LinqToSqlAttributesCommon
             foreach (var project in solution.Projects)
             {
                 var documentsProcessingTask = project.Documents.Select(x => documentProcessor.ProcessAsync(x));
-                await Task.WhenAll(documentsProcessingTask);
+                await Task.WhenAll(documentsProcessingTask).ConfigureAwait(false);
 
                 ConsoleHelper.Write($"{++i}/{projectsCount} : {project.Name} was processed");
             }

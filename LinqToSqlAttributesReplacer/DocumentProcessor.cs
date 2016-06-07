@@ -37,7 +37,7 @@ namespace LinqToSqlAttributesReplacer
             documentEditingCommands.Aggregate(documentEditor, (editor, command) => command.Execute(documentEditor));
             var updatedDocument = documentEditor.GetChangedDocument();
 
-            documentWriter.Write(updatedDocument);
+            await documentWriter.WriteAsync(updatedDocument).ConfigureAwait(false);
         }
     }
 }
