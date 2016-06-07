@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -9,7 +10,6 @@ namespace LinqToSqlAttributesCommon.Extensions
         public static AttributeSyntax[] SelectAttributes(this PropertyDeclarationSyntax property, params string[] attributeNames)
         {
             return property.AttributeLists.InnerSelectAttributes(attributeNames);
-
         }
 
         public static AttributeSyntax[] SelectAttributes(this ClassDeclarationSyntax @class, params string[] attributeNames)
@@ -48,12 +48,17 @@ namespace LinqToSqlAttributesCommon.Extensions
 
         public static AttributeArgumentSyntax GetArgument(this AttributeSyntax attribute, string attributeName)
         {
-            return attribute.ArgumentList.Arguments.Single(x => x.NameEquals.Name.ToString() == attributeName);
+            var attributeArgumentSyntax = attribute.ArgumentList?.Arguments.Single(x => x.NameEquals.Name.ToString() == attributeName);
+            if (attributeArgumentSyntax == null)
+            {
+                throw new KeyNotFoundException("Arguments not found");
+            }
+            return attributeArgumentSyntax;
         }
 
         public static AttributeArgumentSyntax FindArgument(this AttributeSyntax attribute, string attributeName)
         {
-            return attribute.ArgumentList.Arguments.FirstOrDefault(x => x.NameEquals.Name.ToString() == attributeName);
+            return attribute.ArgumentList?.Arguments.FirstOrDefault(x => x.NameEquals.Name.ToString() == attributeName);
         }
 
         public static string GetStringValue(this AttributeArgumentSyntax argument)
