@@ -15,14 +15,14 @@ namespace LinqToSqlAttributesReplacer
             try
             {
                 var container = CreateContainerInstance();
-                
+
                 var solutionPath = SolutionHelper.GetSolutionPath(args);
                 var solutionProcessor = container.GetInstance<ISolutionProcessor>();
                 solutionProcessor.ProcessAsync(solutionPath).Wait();
             }
             catch (Exception e)
             {
-                ConsoleHelper.Write($"{e.Message}\n{e.StackTrace}");
+                ConsoleHelper.Write(e.ToString());
             }
             finally
             {
