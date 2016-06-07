@@ -13,7 +13,7 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
                 .FindArgument(AttributeArgumentName.ColumnIsCheckUpdate)
                 ?.GetEnumValue();
 
-            return canBeNull == "UpdateCheck.Never"
+            return string.IsNullOrEmpty(canBeNull) || canBeNull == "UpdateCheck.Never"
                 ? null
                 : CreateReplacement();
         }
