@@ -16,7 +16,9 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories
 
         public PropertyAttributesReplacementCommandFactory(IAttributeParameterConverter[] attributeParameterConverters)
         {
-            this.attributeParameterConverters = attributeParameterConverters;
+            this.attributeParameterConverters = attributeParameterConverters
+                .OrderBy(x => x.Priority)
+                .ToArray();
         }
 
         public bool CanCreate(SyntaxNode documentSyntax)

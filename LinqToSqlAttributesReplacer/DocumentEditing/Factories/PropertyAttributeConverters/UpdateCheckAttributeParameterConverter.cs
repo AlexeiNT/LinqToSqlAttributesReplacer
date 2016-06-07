@@ -7,6 +7,8 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
 {
     public class UpdateCheckAttributeParameterConverter : IAttributeParameterConverter
     {
+        public int Priority => 40;
+
         public AttributeSyntax Convert(AttributeSyntax attribute)
         {
             var canBeNull = attribute

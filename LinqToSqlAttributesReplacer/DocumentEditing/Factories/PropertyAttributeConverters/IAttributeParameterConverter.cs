@@ -5,5 +5,6 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
     public interface IAttributeParameterConverter
     {
         AttributeSyntax Convert(AttributeSyntax attribute);
+        int Priority { get; }
     }
 }

@@ -11,6 +11,8 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
         private const string generateIdentity = "DatabaseGenerationOption.Identity";
         private const string generateNone = "DatabaseGenerationOption.None";
 
+        public int Priority => 30;
+
         public AttributeSyntax Convert(AttributeSyntax attribute)
         {
             var canBeNull = attribute

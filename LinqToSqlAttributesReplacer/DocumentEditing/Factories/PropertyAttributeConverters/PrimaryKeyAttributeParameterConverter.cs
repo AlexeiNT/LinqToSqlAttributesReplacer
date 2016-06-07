@@ -7,6 +7,8 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
 {
     public class PrimaryKeyAttributeParameterConverter : IAttributeParameterConverter
     {
+        public int Priority => 10;
+
         public AttributeSyntax Convert(AttributeSyntax attribute)
         {
             var isPrimary = attribute

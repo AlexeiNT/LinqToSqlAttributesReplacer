@@ -7,6 +7,8 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
     {
         private const string columnIsDescriminator = AttributeArgumentName.ColumnIsDescriminator;
 
+        public int Priority => 100500;
+
         public AttributeSyntax Convert(AttributeSyntax attribute)
         {
             return null;

@@ -21,6 +21,8 @@ namespace LinqToSqlAttributesReplacer.DocumentEditing.Factories.PropertyAttribut
             return CreateReplacement(columnName, columnType);
         }
 
+        public int Priority => 0;
+
         private static AttributeSyntax CreateReplacement(string columnName, string columnType)
         {
             var attributesArguments = new List<AttributeArgumentSyntax>();
